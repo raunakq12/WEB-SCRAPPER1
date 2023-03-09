@@ -4,7 +4,7 @@ import requests
 from requests.auth import HTTPBasicAuth
 from bs4 import BeautifulSoup
 
- 
+
 
 with open('crawlingFeeds.json', 'r') as json_file:
 	login_details = json.load(json_file)
@@ -16,6 +16,7 @@ url=(login_details['crawlScanProfile']['urlFQDN'])
 login_url=(login_details['crawlScanProfile']['crawlScanSettings']['authSettings']['authData']['normalAuth']['authValues']['login_url'])
 
 login_form_url=(login_details['crawlScanProfile']['crawlScanSettings']['authSettings']['authData']['normalAuth']['authValues']['login_form_url'])
+
 
 s = requests.Session()
 
@@ -56,6 +57,24 @@ if response.status_code==401 :
     res = s.get("https://m1.forenzythreatlabs.com/bank/main.jsp", auth=HTTPBasicAuth(Busername,Bpassword))
     soup_N=BeautifulSoup(res.text, 'html.parser')
     print("BANK ACCOUNTS ---------------->",soup_N.find_all('option'))
+    """media_tags = soup.find_all(["img", "video", "audio"])
+    print(media_tags)
+    
+    # Create a directory to save the media files
+    media_dir = "media"
+    if not os.path.exists(media_dir):
+        os.mkdir(media_dir)
+
+    # Download each media file and save it in the media directory
+    for tag in media_tags:
+        media_url = tag.get("src") or tag.get("href")
+        if media_url:
+            media_response = requests.get(media_url)
+            media_filename = os.path.join(media_dir, os.path.basename(media_url))
+            with open(media_filename, "wb") as f:
+                f.write(media_response.content)
+                print(f"Downloaded {media_filename}")"""
+
         
 
 

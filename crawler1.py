@@ -21,47 +21,56 @@ s = requests.Session()
 
 # Basic Authentication
 flag=0
-response = s.get(url, auth=HTTPBasicAuth(Busername,Bpassword))
-r=response.text
-soup = BeautifulSoup(r, 'lxml')
-for link in soup.findAll('a'):
-    if "//" not in link.get('href'):
-        if "login.jsp" in link.get('href'):
-            flag=1
-            print("--------------------------------------------------------------------------------------------------- !! login page detected ")
-            print("crawling site ----->>>>>",url+link.get('href').replace('/','',1))
-            print("---------------------------------------------------------------------------------------------------")
-        else:
-             print("crawling site ----->>>>>",url+link.get('href').replace('/','',1))
-    else:
-        print("crawling site ----->>>>>",link.get('href'))
 
-print("\n")
-print("\n")
+response = s.get(url)
+if response.status_code==401 :  
+    response = s.get(url, auth=HTTPBasicAuth(Busername,Bpassword))
+    r=response.text
+    soup = BeautifulSoup(r, 'lxml')
+    for link in soup.findAll('a'):
+            if "//" not in link.get('href'):
+                if "login.jsp" in link.get('href'):
+                    flag=1
+                    print("--------------------------------------------------------------------------------------------------- !! login page detected ")
+                    print("crawling site ----->>>>>",url+link.get('href').replace('/','',1))
+                    print("---------------------------------------------------------------------------------------------------")
+                else:
+                    print("crawling site ----->>>>>",url+link.get('href').replace('/','',1))
+            else:
+                print("crawling site ----->>>>>",link.get('href'))
+
+            print("\n")
+            # print(s.cookies)
+    s.post(
+            login_form_url,
+            data={
+                "uid": Ausername,
+                "passw": Apassword,
+                "btnSubmit": "Login",
+            },
+            auth=HTTPBasicAuth(Busername,Bpassword),
+        )
+
+        # print(s.cookies)
+
+    res = s.get("https://m1.forenzythreatlabs.com/bank/main.jsp", auth=HTTPBasicAuth(Busername,Bpassword))
+    soup_N=BeautifulSoup(res.text, 'html.parser')
+    print("BANK ACCOUNTS ---------------->",soup_N.find_all('option'))
+        
+
+
+if response.status_code==200:
+    print(response.status_code)
+    response = s.get(url)
+    r=response.text
+    soup = BeautifulSoup(r, 'lxml')
+    for link in soup.findAll('a'):
+         print("crawling site ----->>>>>",link.get('href'))
 
 
 
 #############################################
 
-# print(s.cookies)
-
-s.post(
-     login_form_url,
-     data={
-        "uid": Ausername,
-        "passw": Apassword,
-        "btnSubmit": "Login",
-    },
-    auth=HTTPBasicAuth(Busername,Bpassword),
-)
-
-# print(s.cookies)
-
-res = s.get("https://m1.forenzythreatlabs.com/bank/main.jsp", auth=HTTPBasicAuth(Busername,Bpassword))
-soup_N=BeautifulSoup(res.text, 'html.parser')
-print("BANK ACCOUNTS ---------------->",soup_N.find_all('option'))
-for link in soup.findAll('a'):
-     print("crawling site ----->>>>>",link.get('href'))
 
 
 """

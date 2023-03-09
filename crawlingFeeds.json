@@ -1,0 +1,57 @@
+{
+  "crawlScanProfile": {
+    "urlId": "98",
+    "profileName": "testFireAuthBasicAndManual",
+    "siteType": "https",
+    "sitePort": "443",
+    "urlFQDN": "https://m1.forenzythreatlabs.com/",
+    "isAuthScan": 1,
+    "forenzy_crawl_json_version": "1.0",
+    "crawlScanSettings": {
+      "crawlSettings": {
+        "crawlTimeOut": "-1",
+        "crawlMaxPageLimit": "-1",
+        "crawlUserAgent": "Mozilla/5.0+(compatible; Forenzy-AntiDefacement-Crawler/12.0.143121; https://forenzy.net/)",
+        "crawlCustomReqHeader": "X-Forenzy-Header: Forenzy-AntiDefacement-Crawler/12.0.143121",
+        "crawlLimitPerMinute": "-1",
+        "response_header_whitelist": [
+          "Date"
+        ],
+        "skip_page_crawling": [
+          "http://demo.testfire.net/bhaumik.jsp"
+        ],
+        "skip_webpage_diff_check": [
+          "http://demo.testfire.net/bhaumik.jsp"
+        ]
+      },
+      "authSettings": {
+        "isNormalAuthVal": 1,
+        "isBasicAuthVal": 1,
+        "isRawAuthVal": 0,
+        "authData": {
+          "normalAuth": {
+            "authValues": {
+              "login_url": "https://m1.forenzythreatlabs.com/login.jsp",
+              "login_form_url":"https://m1.forenzythreatlabs.com/doLogin",
+              "user_field": "uid",
+              "pwd_field": "passw",
+              "submit_field": "btnSubmit",
+              "user_data": "jsmith",
+              "user_pwd_data": "Demo1234",
+              "authCookie": "AltoroAccounts=\"ODAwMDAyflNhdmluZ3N+MS42NDQ3MjAwNjY2NjcwNDY1RTE5fDgwMDAwM35DaGVja2luZ34yLjM2ODkzNDg4MTYxNzcwNDRFMjB8NDUzOTA4MjAzOTM5NjI4OH5DcmVkaXQgQ2FyZH4tMS45OTk1NDM0MDEyNzg3MTE1NUUxOHw=\"",
+              "fullSubmitReq": "uid=jsmith&passw=Demo1234&btnSubmit=Login",
+              "reserved_field1": ""
+            }
+          },
+          "basicAuth": {
+            "authValues": {
+              "basic_auth_usrn": "forenzy_lab1",
+              "basic_auth_pwd": "n18p7spo_reW9du#",
+              "basic_bearer_header": "Basic dGxfbWFjaGluZTE6TGV0c0JyZWFrRENvZGUjNCM="
+            }
+          }
+        }
+      }
+    }
+  }
+}

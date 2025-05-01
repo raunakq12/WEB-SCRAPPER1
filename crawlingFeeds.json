@@ -4,24 +4,24 @@
     "profileName": "testFireAuthBasicAndManual",
     "siteType": "https",
     "sitePort": "443",
-    "urlFQDN": "https://m1.forenzythreatlabs.com/",
+    "urlFQDN": "https://xxxx.com/",
     "isAuthScan": 1,
-    "forenzy_crawl_json_version": "1.0",
+    "xxx_crawl_json_version": "1.0",
     "crawlScanSettings": {
       "crawlSettings": {
         "crawlTimeOut": "-1",
         "crawlMaxPageLimit": "-1",
-        "crawlUserAgent": "Mozilla/5.0+(compatible; Forenzy-AntiDefacement-Crawler/12.0.143121; https://forenzy.net/)",
-        "crawlCustomReqHeader": "X-Forenzy-Header: Forenzy-AntiDefacement-Crawler/12.0.143121",
+        "crawlUserAgent": "Mozilla/5.0+(compatible; xxx-AntiDefacement-Crawler/12.0.143121; https://xxx.net/)",
+        "crawlCustomReqHeader": "X-xxx-Header: xxx-AntiDefacement-Crawler/12.0.143121",
         "crawlLimitPerMinute": "-1",
         "response_header_whitelist": [
           "Date"
         ],
         "skip_page_crawling": [
-          "http://demo.testfire.net/bhaumik.jsp"
+          "http://demo.testfire.net/xx.jsp"
         ],
         "skip_webpage_diff_check": [
-          "http://demo.testfire.net/bhaumik.jsp"
+          "http://demo.testfire.net/xx.jsp"
         ]
       },
       "authSettings": {
@@ -31,8 +31,8 @@
         "authData": {
           "normalAuth": {
             "authValues": {
-              "login_url": "https://m1.forenzythreatlabs.com/login.jsp",
-              "login_form_url":"https://m1.forenzythreatlabs.com/doLogin",
+              "login_url": "https://xxxx.com/login.jsp",
+              "login_form_url":"https://xxxx.com/doLogin",
               "user_field": "uid",
               "pwd_field": "passw",
               "submit_field": "btnSubmit",
@@ -45,7 +45,7 @@
           },
           "basicAuth": {
             "authValues": {
-              "basic_auth_usrn": "forenzy_lab1",
+              "basic_auth_usrn": "xxx_lab1",
               "basic_auth_pwd": "n18p7spo_reW9du#",
               "basic_bearer_header": "Basic dGxfbWFjaGluZTE6TGV0c0JyZWFrRENvZGUjNCM="
             }
